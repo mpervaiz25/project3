@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--makes it a mobile friendly page -->
+		<title>Hobbies</title>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/hobbies.css">
+		<link rel="stylesheet" href="css/slider.css">
+		
+		<script src="js/slider.js" defer></script>    <!-- JavaScript connection -->
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	
+	</head>
+  
+  <body>
+    <header>
+			<nav>
+				<ul>
+          <li><a href="index.html">Resume</a></li>
+          <li><a href="trees.html">Trees</a></li>
+          <li><a href="hobbies.html">Hobbies</a></li>
+					<li><a href="map.html">Map</a></li>
+        </ul>
+			</nav>
+		</header>
+		
+		<main>
+			<h1>Hobbies and Interests</h1>
+			<p>Here are some of my favorite hobbies and interests:</p>
+			<section>
+				<h4>Juggling</h4>
+				<p>I like to juggle even though I'm really bad it, but I like trying new things. This video can help you learn to juggle if you want to try something new!</p>
+				<div id="center">
+          <iframe 
+						width="400"
+						height="300"
+						src="https://www.youtube.com/embed/dCYDZDlcO6g?si=ctmaeoG3-LQkegCm" 
+						allowfullscreen>
+					</iframe>
+				</div>
+			</section>
+			
+			<section>
+				<h4>Hiking</h4>
+				<p>I've recently picked up Hiking as a hobby as well. Most recently I visited Devil's Lake State Park in Wisconcin.</p>
+				<img src="Media/Hiking.jpg" alt="Devil's lake state park" width="600">
+				
+			</section>
+			
+			<section>
+        <h4>Photo Gallery</h4>
+        <div id="slider">
+					<div class="slider-wrapper">
+						<img src="Media/Hiking1.jpg" alt="Hiking Photo 1" class="slider-image">
+						<img src="Media/Hiking2.jpg" alt="Hiking Photo 2" class="slider-image hidden">
+						<img src="Media/Hiking3.jpg" alt="Hiking Photo 3" class="slider-image hidden">
+					</div>
+				</div>
+			
+			
+        <button id="prev">Previous</button>
+        <button id="next">Next</button>
+      </section>
+			
+		</main>
+  </body>
+</html>
