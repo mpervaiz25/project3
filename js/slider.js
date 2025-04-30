@@ -6,8 +6,11 @@ function initMap() {
     center: iitLocation,
   });
 
-
-
+  const marker = new google.maps.Marker({
+    position: iitLocation,
+    map: map,
+    title: "Illinois Tech",
+  });
 
 
 
