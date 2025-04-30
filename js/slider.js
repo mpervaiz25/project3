@@ -11,7 +11,25 @@ function initMap() {
     map: map,
     title: "Illinois Tech",
   });
+  
+  // Info window
+  const infoWindow = new google.maps.InfoWindow({
+    content: "<h3>Illinois Institute of Technology</h3><p>A Level 1 Arboretum Campus!</p>",
+  });
 
+  marker.addListener("click", () => {
+    infoWindow.open(map, marker);
+  });
+  
+   // Reset button
+  const resetButton = document.getElementById("resetMap");
+  if (resetButton) {
+    resetButton.addEventListener("click", () => {
+      map.setCenter(iitLocation);
+      map.setZoom(14);
+    });
+  }
+}
 
 
 // JavaScript for the Image Slider
