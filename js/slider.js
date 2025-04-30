@@ -34,39 +34,49 @@ function initMap() {
 
 // JavaScript for the Image Slider
 
-// Get all required elements
-const sliderImages = document.querySelectorAll('.slider-image'); // All images
-const prevButton = document.getElementById('prev'); // Previous button
-const nextButton = document.getElementById('next'); // Next button
+function initImageSlider() {
+  const sliderImages = document.querySelectorAll('.slider-image');
+  const prevButton = document.getElementById('prev');
+  const nextButton = document.getElementById('next');
+  let currentIndex = 0;
 
-// Initialize the active image index
-let currentIndex = 0;
+  const updateSlider = () => {
+    sliderImages.forEach((image, index) => {
+      if (index === currentIndex) {
+        image.classList.add('active');
+        image.classList.remove('hidden');
+      } else {
+        image.classList.remove('active');
+        image.classList.add('hidden');
+      }
+    });
+  };
 
-// Function to show the active image
-function updateSlider() {
-  // Hide all images
-  sliderImages.forEach((image, index) => {
-    if (index === currentIndex) {
-      image.classList.add('active'); // Show current image
-      image.classList.remove('hidden');
-    } else {
-      image.classList.remove('active'); // Hide other images
-      image.classList.add('hidden');
-    }
-  });
+  if (prevButton && nextButton && sliderImages.length > 0) {
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + sliderImages.length) % sliderImages.length;
+      updateSlider();
+    });
+
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % sliderImages.length;
+      updateSlider();
+    });
+
+    updateSlider(); // Show the first image
+  }
 }
 
-// Event listener for the 'Next' button
-nextButton.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % sliderImages.length; // Move to the next image (loop around)
-  updateSlider();
+// Load Map when all resources are ready
+window.addEventListener("load", () => {
+  if (typeof google !== "undefined") {
+    initMap();
+  } else {
+    console.error("Google Maps API failed to load.");
+  }
 });
 
-// Event listener for the 'Previous' button
-prevButton.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + sliderImages.length) % sliderImages.length; // Move to the previous image (loop around)
-  updateSlider();
+// Load Slider after DOM is ready
+document.addEventListener("DOMContentLoaded", () => {
+  initImageSlider();
 });
-
-// Initial call to display the first image
-updateSlider();
